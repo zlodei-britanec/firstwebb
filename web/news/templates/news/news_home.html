@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}Новости на сайте.{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Новости на сайте.</h1>
+        <button onclick="window.location.href = 'http://127.0.0.1:8000/'" class='btn btn-warning'>На главную страницу.</button>
+
+        {% for el in news %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.anons }}</p>
+                <a href="{% url 'news-detail' el.id %}"><button class="btn btn-warning">Читать статью.</button></a>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
